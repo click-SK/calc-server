@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import * as MainController from './controllers/MainController.js';
 
+dotenv.config();
 const app = express();
 
 const db = 'mongodb+srv://roskichuk:qwerty12345@cluster0.qsctyoj.mongodb.net/?retryWrites=true&w=majority';
@@ -19,6 +20,6 @@ app.use(express.json());
 app.post('/create',MainController.create);
 app.get('/getall',MainController.getAll);
 
-app.listen(4444,() => {
-    console.log('Server start');
+app.listen(process.env.PORT,() => {
+    console.log('Server start', process.env.PORT);
 })
